@@ -1,42 +1,21 @@
-import "./App.css";
-import logo from "./logo.png";
+import { Routes, Route } from 'react-router-dom';
+import { HomeScreen } from './screens';
+import Mockman from 'mockman-js';
+import { NavBar } from './components/common/navbar';
+import { Footer } from './components/common/footer';
+import { GlobalStyle } from './utils';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<HomeScreen />} />
+        <Route path='mock' element={<Mockman />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 
