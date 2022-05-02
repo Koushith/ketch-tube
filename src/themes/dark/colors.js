@@ -8,3 +8,7 @@ const colors = {
 export const theme = {
   colors,
 };
+
+/**
+ * https://movie-app-reactjs-chakra-ui.vercel.app/
+ */
