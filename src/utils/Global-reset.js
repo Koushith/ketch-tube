@@ -61,8 +61,10 @@ table {
 }
 body {
   line-height: 1;
-  background-color:#151719;
-  color:#9ba9b4;
+  /* background-color:#151719; */
+  /* color:#9ba9b4; */
+  background-color:#fff;
+  color:#gray;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
