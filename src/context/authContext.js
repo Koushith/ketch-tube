@@ -54,9 +54,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    console.log('logout was called');
     localStorage.removeItem('login');
-
     localStorage.removeItem('user');
     localStorage.removeItem('signup');
   };
