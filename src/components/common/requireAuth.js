@@ -3,8 +3,7 @@ import { useAuth } from '../../hooks';
 
 export const RequireAuth = ({ children }) => {
   const location = useLocation();
-  const { isLoggedIn } = useAuth();
-  console.log('logged in?', isLoggedIn);
-  console.log('location from req', location);
-  return <>{isLoggedIn ? children : <Navigate to='/login' state={{ from: location }} replace />}</>;
+  const { token } = useAuth();
+
+  return <>{token ? children : <Navigate to='/login' state={{ from: location?.pathname }} replace />}</>;
 };

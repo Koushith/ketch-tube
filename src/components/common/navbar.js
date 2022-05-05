@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks';
 
 export const NavBar = () => {
+  const { token, logout } = useAuth();
+
+  const navigate = useNavigate();
+
+  const logOutHandler = () => {
+    logout();
+  };
   return (
     <div>
       <nav>
@@ -20,6 +28,7 @@ export const NavBar = () => {
           <li>
             <Link to='/history'>history</Link>
           </li>
+          {token && <button onClick={logOutHandler}>logout</button>}
         </ul>
       </nav>
     </div>
