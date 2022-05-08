@@ -6,20 +6,22 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { makeServer } from './server';
 import { theme } from './themes/dark/colors';
-import { CssBaseline, GeistProvider, Themes } from '@geist-ui/core';
-import { AuthProvider } from './context';
+
+import { AuthProvider, VideoProvider } from './context';
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <GeistProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <AuthProvider>
         <BrowserRouter>
-          <App />
+          <VideoProvider>
+            <App />
+          </VideoProvider>
         </BrowserRouter>
       </AuthProvider>
-    </GeistProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

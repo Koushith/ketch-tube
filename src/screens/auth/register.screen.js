@@ -1,8 +1,8 @@
-import { Input, Spacer, Button } from '@geist-ui/core';
 import axios from 'axios';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks';
+import { Spacer } from './spacer';
 
 export const RegisterScreen = () => {
   const [signupForm, setSignUpForm] = useState({
@@ -34,47 +34,37 @@ export const RegisterScreen = () => {
     <>
       <h3>Sign Up</h3>
       <div style={{ width: '600px', margin: '0 auto' }}>
-        <Input
+        <input
           placeholder='first  name'
           value={signupForm.firstName}
           onChange={(e) => setSignUpForm({ ...signupForm, firstName: e.target.value })}
-        >
-          Firest name
-        </Input>
+        />
         <Spacer />
-        <Input
+        <input
           placeholder='last name'
           value={signupForm.lastName}
           onChange={(e) => setSignUpForm({ ...signupForm, lastName: e.target.value })}
-        >
-          Last Name
-        </Input>
+        />
         <Spacer />
-        <Input
+        <input
           placeholder='email'
           inputMode='email'
           value={signupForm.email}
           onChange={(e) => setSignUpForm({ ...signupForm, email: e.target.value })}
-        >
-          email
-        </Input>
+        />
         <Spacer />
-        <Input.Password
+        <input
           placeholder='password'
           inputMode='password'
           value={signupForm.password}
           onChange={(e) => setSignUpForm({ ...signupForm, password: e.target.value })}
-        >
-          password
-        </Input.Password>
+        />
         <Spacer />
         <label className='select-input'>
           <input type='checkbox' name='light' className='checkbox-input' required />
           <span className='text'>I accept all Terms & Conditions</span>
         </label>
-        <Button type='success' onClick={submitHandler}>
-          create New Account
-        </Button>
+        <button onClick={submitHandler}>create New Account</button>
         <Spacer />
       </div>
     </>

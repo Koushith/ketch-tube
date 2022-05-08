@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 
+import navbarStyles from './navbar.component.module.css';
+import { Logo, NavbarContainer, NavbarMain, SearchContainer } from './navbar/navbar.styles';
+
 export const NavBar = () => {
   const { token, logout } = useAuth();
 
@@ -10,27 +13,20 @@ export const NavBar = () => {
     logout();
   };
   return (
-    <div>
-      <nav>
-        <ul style={{ display: 'flex', fontSize: ' 24px', color: 'white', gap: '4rem' }}>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/playlist'>Playlist</Link>
-          </li>
-          <li>
-            <Link to='/liked'>Liked</Link>
-          </li>
-          <li>
-            <Link to='/watchlater'>watch Later</Link>
-          </li>
-          <li>
-            <Link to='/history'>history</Link>
-          </li>
-          {token && <button onClick={logOutHandler}>logout</button>}
-        </ul>
-      </nav>
-    </div>
+    <NavbarContainer>
+      <NavbarMain>
+        <Logo className={navbarStyles.logo} onClick={() => navigate('/')}>
+          KETCH
+        </Logo>
+        <SearchContainer>
+          <i className='fa fa-search' aria-hidden='true'></i>
+          <input type='text' placeholder='search' />
+        </SearchContainer>
+
+        <nav>
+          <li>ds</li>
+        </nav>
+      </NavbarMain>
+    </NavbarContainer>
   );
 };
